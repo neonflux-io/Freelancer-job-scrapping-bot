@@ -1,0 +1,180 @@
+:root {
+  --bg: #f3f5f8;
+  --panel: #ffffff;
+  --text: #15202b;
+  --muted: #4d5c6a;
+  --line: #d8dde3;
+  --accent: #005a9e;
+  --accent-strong: #004578;
+  --ok: #067647;
+  --error: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 360px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top right, #ffffff 0%, var(--bg) 48%, #eaf0f6 100%);
+  color: var(--text);
+}
+
+.app {
+  padding: 14px;
+}
+
+.header h1 {
+  font-size: 16px;
+  margin: 0 0 4px;
+}
+
+.header p {
+  margin: 0 0 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.section {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  margin: 8px 0 4px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  border: 1px solid #b7c2cc;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 13px;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2px 0;
+}
+
+.switch-row span {
+  font-size: 13px;
+}
+
+.switch-row input {
+  width: 16px;
+  height: 16px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-strong);
+}
+
+.btn-secondary {
+  background: #eaf2fb;
+  color: var(--accent-strong);
+}
+
+.btn-small {
+  padding: 6px 8px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.mt-small {
+  margin-top: 8px;
+}
+
+.logs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.logs-header label {
+  margin: 0;
+}
+
+.logs-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.logs-output {
+  margin: 0;
+  padding: 8px;
+  min-height: 150px;
+  max-height: 220px;
+  overflow: auto;
+  border: 1px solid #b7c2cc;
+  border-radius: 8px;
+  background: #f8fbff;
+  color: #1b2a38;
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.footer {
+  padding: 2px 2px 4px;
+}
+
+.status {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.status.ok {
+  color: var(--ok);
+}
+
+.status.error {
+  color: var(--error);
+}
+
+.meta {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+}

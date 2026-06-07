@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freelancer Notifier — Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>Freelancer Notifier</h1>
+        <p>Settings</p>
+      </header>
+
+      <section class="section">
+        <h2 class="section-title">Telegram</h2>
+        <label for="telegramBotToken">Bot token</label>
+        <input id="telegramBotToken" type="password" placeholder="123456:ABCDEF" autocomplete="off" />
+        <label for="telegramChatId">Chat ID</label>
+        <input id="telegramChatId" type="text" placeholder="123456789" autocomplete="off" />
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Job mode</h2>
+        <label for="mode">Mode</label>
+        <select id="mode">
+          <option value="notify">Notify only</option>
+          <option value="auto_bid">Auto bid</option>
+        </select>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Proposal generation</h2>
+        <label for="proposalSource">Source</label>
+        <select id="proposalSource">
+          <option value="freelancer">Freelancer AI (built-in)</option>
+          <option value="llama">Llama AI (self-hosted)</option>
+        </select>
+        <label for="llamaHost">Llama host</label>
+        <input id="llamaHost" type="text" placeholder="llama.orsentra.com" />
+        <label for="llamaPrompt">Prompt template</label>
+        <textarea id="llamaPrompt" rows="8" placeholder="Write your prompt here. Use {jobDescription} where the job description should be inserted."></textarea>
+        <p class="hint">Available placeholder: <code>{jobDescription}</code></p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Auto-bid timing</h2>
+        <label for="bidFormTimeoutSec">Bid form wait timeout (seconds, 5–120)</label>
+        <input id="bidFormTimeoutSec" type="number" min="5" max="120" step="1" placeholder="15" />
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Budget filters</h2>
+        <label for="minBudgetFixed">Min budget — Fixed price (USD, 0 = any)</label>
+        <input id="minBudgetFixed" type="number" min="0" step="1" placeholder="0" />
+        <label for="minBudgetHourly">Min budget — Hourly rate (USD/hr, 0 = any)</label>
+        <input id="minBudgetHourly" type="number" min="0" step="1" placeholder="0" />
+        <p class="hint">
+          Hourly vs fixed type is determined definitively on the project apply page (auto-bid).
+          For notify mode, the type is best-effort from the job list — if undetectable, the filter is skipped.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Job filters</h2>
+        <label for="blockedCurrencies">Blocked currencies (comma separated)</label>
+        <input id="blockedCurrencies" type="text" placeholder="INR, ₹" />
+        <label for="excludedCountries">Excluded client countries (comma separated)</label>
+        <input id="excludedCountries" type="text" placeholder="philippines, indonesia" />
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Auto-bid notifications</h2>
+        <div class="switch-row">
+          <label for="notifyOnSuccess">Notify on bid success</label>
+          <input id="notifyOnSuccess" type="checkbox" />
+        </div>
+        <div class="switch-row">
+          <label for="notifyOnFail">Notify on bid fail</label>
+          <input id="notifyOnFail" type="checkbox" />
+        </div>
+      </section>
+
+      <section class="section actions">
+        <button id="saveBtn" type="button" class="btn btn-primary">Save settings</button>
+        <button id="testBtn" type="button" class="btn btn-secondary">Send test notification</button>
+      </section>
+
+      <section class="section">
+        <div class="logs-header">
+          <h2 class="section-title">Debug logs</h2>
+          <div class="logs-actions">
+            <button id="refreshLogsBtn" type="button" class="btn btn-secondary btn-small">Refresh</button>
+            <button id="clearLogsBtn" type="button" class="btn btn-secondary btn-small">Clear</button>
+          </div>
+        </div>
+        <pre id="logsOutput" class="logs-output">Loading...</pre>
+      </section>
+
+      <footer class="footer">
+        <p id="status" class="status">Loading...</p>
+      </footer>
+    </main>
+
+    <script src="options.js"></script>
+  </body>
+</html>

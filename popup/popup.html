@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freelancer Notifier</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>Freelancer Notifier</h1>
+        <p>Jobs &amp; messages → Telegram</p>
+      </header>
+
+      <section class="section">
+        <div class="switch-row">
+          <span>Bot status</span>
+          <strong id="botStatusText">Stopped</strong>
+        </div>
+        <button id="botToggleBtn" type="button" class="btn btn-secondary mt-small">Start bot</button>
+      </section>
+
+      <section class="section stats">
+        <p id="sentCount" class="meta"></p>
+        <p id="queueCount" class="meta"></p>
+        <p id="activeProject" class="meta"></p>
+      </section>
+
+      <section class="section actions">
+        <button id="testBtn" type="button" class="btn btn-secondary">Send test notification</button>
+        <button id="optionsBtn" type="button" class="btn btn-secondary">Open settings</button>
+      </section>
+
+      <footer class="footer">
+        <p id="status" class="status">Loading...</p>
+      </footer>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
